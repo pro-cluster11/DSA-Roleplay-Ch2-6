@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Simulation Project: Linear Search Algorithm</title>
+    <!-- MathJax for rendering LaTeX notations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif; /* Classic academic font */
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 50px 60px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .header-info {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .highlight-link {
+            color: #e74c3c;
+            font-weight: bold;
+            background-color: #fdf2f2;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        td:nth-child(1), td:nth-child(2), td:nth-child(3) {
+            width: 15%;
+        }
+        .text-left {
+            text-align: left;
+        }
+        .code-style {
+            font-family: 'Courier New', Courier, monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        ol.reflections li {
+            margin-bottom: 15px;
+        }
+        /* Print styles to ensure the PDF looks perfect */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Group Simulation Project: Linear Search Algorithm</h1>
+    
+    <div class="header-info">
+        <strong>Course:</strong> Data Structures & Algorithms<br>
+        <strong>Repository Name:</strong> <span class="code-style">DSA-Roleplay-Ch2-6</span><br>
+        <strong>Video Link:</strong> <span class="highlight-link">VIDEO LINK HERE</span>
+    </div>
+
+    <h2>1. Topic Rationale & Team Roles</h2>
+    <p><strong>Chosen Topic:</strong> Linear Search (Chapter 2)</p>
+    <p><strong>Rationale:</strong> Linear Search was selected because it provides a clear, step-by-step sequential pattern that translates effectively into a physical simulation. It allows us to demonstrate best-case $O(1)$ and worst-case $O(N)$ execution bounds using simple node comparisons and pointer shifts.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th class="text-left">Member Role</th>
+                <th class="text-left">Assigned Responsibility</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-left"><strong>Camera / Narrator / Scribe</strong></td>
+                <td class="text-left">Operates camera, explains algorithmic logic, and logs operations live.</td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Pointer / Search Index</strong></td>
+                <td class="text-left">Holds index arrow and steps between array nodes sequentially.</td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Data Node 0</strong></td>
+                <td class="text-left">Holds card value <strong>4</strong> (Index 0).</td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Data Node 1</strong></td>
+                <td class="text-left">Holds card value <strong>7</strong> (Index 1).</td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Data Node 2</strong></td>
+                <td class="text-left">Holds card value <strong>11</strong> (Index 2).</td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Data Node 3</strong></td>
+                <td class="text-left">Holds card value <strong>15</strong> (Index 3).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. Step-by-Step Operation Log</h2>
+    <p><strong>Initial Array State:</strong> <span class="code-style">[4, 7, 11, 15]</span></p>
+
+    <h3>Operation 1: Best-Case Search (Target = 4)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Step</th>
+                <th>Current Index</th>
+                <th>Value Checked</th>
+                <th>Comparison</th>
+                <th>Result</th>
+                <th>Cumulative Comparisons</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>4</td>
+                <td><span class="code-style">4 == 4</span></td>
+                <td><strong>Match Found</strong></td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Operation 2: Average-Case Search (Target = 11)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Step</th>
+                <th>Current Index</th>
+                <th>Value Checked</th>
+                <th>Comparison</th>
+                <th>Result</th>
+                <th>Cumulative Comparisons</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>4</td>
+                <td><span class="code-style">4 == 11</span></td>
+                <td>No match, advance pointer</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>1</td>
+                <td>7</td>
+                <td><span class="code-style">7 == 11</span></td>
+                <td>No match, advance pointer</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>2</td>
+                <td>11</td>
+                <td><span class="code-style">11 == 11</span></td>
+                <td><strong>Match Found</strong></td>
+                <td>3</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div> <!-- Ensures a clean break for PDF generation if needed -->
+
+    <h3>Operation 3: Worst-Case Search - Element Present (Target = 15)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Step</th>
+                <th>Current Index</th>
+                <th>Value Checked</th>
+                <th>Comparison</th>
+                <th>Result</th>
+                <th>Cumulative Comparisons</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>4</td>
+                <td><span class="code-style">4 == 15</span></td>
+                <td>No match, advance pointer</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>1</td>
+                <td>7</td>
+                <td><span class="code-style">7 == 15</span></td>
+                <td>No match, advance pointer</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>2</td>
+                <td>11</td>
+                <td><span class="code-style">11 == 15</span></td>
+                <td>No match, advance pointer</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>3</td>
+                <td>15</td>
+                <td><span class="code-style">15 == 15</span></td>
+                <td><strong>Match Found</strong></td>
+                <td>4</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Operation 4: Worst-Case Search - Element Absent (Target = 20)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Step</th>
+                <th>Current Index</th>
+                <th>Value Checked</th>
+                <th>Comparison</th>
+                <th>Result</th>
+                <th>Cumulative Comparisons</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>4</td>
+                <td><span class="code-style">4 == 20</span></td>
+                <td>No match, advance pointer</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>1</td>
+                <td>7</td>
+                <td><span class="code-style">7 == 20</span></td>
+                <td>No match, advance pointer</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>2</td>
+                <td>11</td>
+                <td><span class="code-style">11 == 20</span></td>
+                <td>No match, advance pointer</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>3</td>
+                <td>15</td>
+                <td><span class="code-style">15 == 20</span></td>
+                <td>No match, advance pointer</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Out of Bounds</td>
+                <td>&mdash;</td>
+                <td>Loop Ends</td>
+                <td><strong>Target Not Found</strong></td>
+                <td>4</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. Summary Tally of Operations</h2>
+    <table>
+        <thead>
+            <tr>
+                <th class="text-left">Scenario</th>
+                <th>Target</th>
+                <th>Array Size ($N$)</th>
+                <th>Total Comparisons</th>
+                <th>Time Complexity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-left">Best Case</td>
+                <td>4</td>
+                <td>4</td>
+                <td>1</td>
+                <td>$O(1)$</td>
+            </tr>
+            <tr>
+                <td class="text-left">Average Case</td>
+                <td>11</td>
+                <td>4</td>
+                <td>3</td>
+                <td>$O(N)$</td>
+            </tr>
+            <tr>
+                <td class="text-left">Worst Case (Present)</td>
+                <td>15</td>
+                <td>4</td>
+                <td>4</td>
+                <td>$O(N)$</td>
+            </tr>
+            <tr>
+                <td class="text-left">Worst Case (Absent)</td>
+                <td>20</td>
+                <td>4</td>
+                <td>4</td>
+                <td>$O(N)$</td>
+            </tr>
+            <tr style="background-color: #f9f9f9; font-weight: bold;">
+                <td class="text-left" colspan="3">Total Operations Executed</td>
+                <td>12 Comparisons</td>
+                <td>&mdash;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>4. Critical Reflection on Role-Play Limitations</h2>
+    <ol class="reflections">
+        <li><strong>Pacing and Live Audio Synchronization:</strong> Real-time human interaction created slight delays between the pointer's physical step, the narrator's vocalization, and the scribe logging tally marks, unlike a computer processor's synchronous clock speed.</li>
+        <li><strong>Visual Framing & Legibility:</strong> Maintaining all four static nodes, the dynamic pointer, and the live tally board within a single wide camera shot without sacrificing text legibility required specific physical positioning compromises.</li>
+        <li><strong>Simulating Out-of-Bounds Checks:</strong> Abstract concepts like checking <span class="code-style">index < array.length</span> required physical boundary markers and dummy signs to signal array termination to the viewer.</li>
+        <li><strong>Distinguishing Index vs. Value:</strong> Human participants occasionally risked confusing their ordinal physical position (Index 0, 1, 2, 3) with the numerical data value printed on their cards during rapid comparisons.</li>
+    </ol>
+</div>
+
+</body>
+</html>
